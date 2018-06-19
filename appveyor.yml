@@ -1,0 +1,37 @@
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+  - 1002.OFE-DESKTOP\node_modules
+
+install:
+  - ps: Install-Product node 8 x64
+  - npm i --save electron 
+  - npm i --save-dev electron-rebuild
+  - npm install sqlite3 --save
+  - npm install --global --production windows-build-tools
+  - npm install --global node-gyp
+  - npm run rebuild
+  - npm install
+  - npm install -g webpack
+
+
+
+build_script:
+  - cd 1002.OFE-DESKTOP
+  - npm install
+  - npm i html-webpack-plugin --save-dev
+  - npm run build_dev
+  - dir
+  - dir dist
+  
+  - cd ..
+  - xcopy  1002.OFE-DESKTOP\dist 1002.OFE-PROD\PROD_ANGULAR\dist
+  - xcopy  1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html
+  - npm run dist
+  - cmd: C:\projects\testelectron\WinSCP.com /command "open sftp://user_lasalle:$3B1z2017$@181.65.130.101/ -hostkey=*" ^ "put ""C:\projects\testelectron\dist\offline Setup 0.8.0.exe"" ""/filessftp/B2M/LASALLE/offline Setup 0.8.0.exe""" ^ "exit"
+
+test: off
