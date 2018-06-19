@@ -21,7 +21,7 @@ install:
 
 
 build_script:
-  - cd 1002.OFE-DESKTOP
+  - cd 1002.OFE_DESKTOP
   - npm install
   - npm i html-webpack-plugin --save-dev
   - npm run build_dev
