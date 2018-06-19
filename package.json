@@ -1,7 +1,7 @@
 {
-  "name": "offline",
-  "description": "Sistema de facturacion electronica",
-  "version": "0.8.0",
+  "name": "Sistema_de_Facturacion_Electronica_Offline",
+  "description": "Factura - Bol",
+  "version": "20.6.12",
   "main": "main.js",
   "author": "laSalle <test@gmail.com>",
   "homepage": "http://gitlab.sreasons.com",
@@ -12,7 +12,7 @@
     "rebuild": "electron-rebuild -f -w sqlite3",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --dir",
-    "dist": "build --win",
+    "dist": "build --win && grunt bump",
     "postinstall-sqlite": "cd node_modules/sqlite3 && npm install nan && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64 && node-gyp rebuild --target=1.4.13 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64",
     "postinstall": "electron-builder install-app-deps;",
     "pack-win": "build --dir --win",
@@ -57,6 +57,8 @@
     "execa": "^0.9.0",
     "express": "^4.15.2",
     "express-hateoas-links": "^1.0.8",
+    "grep": "^0.1.0",
+    "grunt": "^1.0.3",
     "jquery": "^3.2.1",
     "js-joda": "^1.8.2",
     "keymaster": "^1.6.2",
@@ -66,6 +68,7 @@
     "mem": "^3.0.0",
     "morgan": "^1.8.1",
     "node-rest-client": "^3.1.0",
+    "npm-auto-version": "^1.0.0",
     "remote": "^0.2.6",
     "request": "^2.81.0",
     "sequelize": "^4.31.2",
@@ -80,6 +83,7 @@
   "devDependencies": {
     "electron": "^1.8.7",
     "electron-builder": "^19.45.5",
-    "electron-rebuild": "^1.7.3"
+    "electron-rebuild": "^1.7.3",
+    "grunt-bump": "^0.8.0"
   }
 }
