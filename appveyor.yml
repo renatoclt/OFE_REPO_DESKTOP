@@ -32,6 +32,52 @@ build_script:
   - xcopy /y 1002.OFE_DESKTOP\dist 1002.OFE-PROD\PROD_ANGULAR\dist*
   - xcopy /y 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html*
   - npm run dist
+  - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\offline.exe*"
   # - cmd: C:\projects\testelectron\WinSCP.com /command "open sftp://user_lasalle:$3B1z2017$@181.65.130.101/ -hostkey=*" ^ "put ""C:\projects\testelectron\dist\offline Setup 0.8.0.exe"" ""/filessftp/B2M/LASALLE/offline Setup 0.8.0.exe""" ^ "exit"
 
+  
+artifacts:
+ - path: dist\*.exe
+   name: version
+ - path: dist\offline.exe
+   name: versionlast
+  
+deploy:
+ - provider: FTP
+   protocol: sftp
+   host: $(ftphost)
+   username: $(ftpusername)
+   password: $(ftppassword)
+   folder: $(APPVEYOR_REPO_BRANCH)
+   artifact: version
+ - provider: AzureBlob
+   storage_account_name: saoce
+   storage_access_key: $(azureblobkey)
+   container: $(container)
+   folder: offline
+   artifact: versionlast
+   unzip: false
+   set_content_type: false
+
+for:
+
+-
+ branches:
+   only:
+     - development
+ environment:
+   container: febiz
+ 
+-
+ branches:
+   only:
+     - qa
+ environment:
+   container: febiz-qa
+-
+ branches:
+   only:
+     - master
+ environment:
+   container: febiz-prd
 test: off

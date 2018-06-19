@@ -1,7 +1,7 @@
 {
   "name": "Sistema_de_Facturacion_Electronica_Offline",
   "description": "Factura - Bol",
-  "version": "20.6.12",
+  "version": "20.6.1",
   "main": "main.js",
   "author": "laSalle <test@gmail.com>",
   "homepage": "http://gitlab.sreasons.com",
@@ -12,7 +12,8 @@
     "rebuild": "electron-rebuild -f -w sqlite3",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --dir",
-    "dist": "build --win && grunt bump",
+    "distGrunt": "build --win && grunt bump",
+    "dist": "build --win",
     "postinstall-sqlite": "cd node_modules/sqlite3 && npm install nan && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64 && node-gyp rebuild --target=1.4.13 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64",
     "postinstall": "electron-builder install-app-deps;",
     "pack-win": "build --dir --win",
