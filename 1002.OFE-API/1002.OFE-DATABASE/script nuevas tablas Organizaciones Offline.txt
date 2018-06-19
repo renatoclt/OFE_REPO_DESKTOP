@@ -1,0 +1,42 @@
+
+
+
+CREATE TABLE `fe_offline_fe_query_t_entidad` (
+	`se_ientidad`	INTEGER NOT NULL,
+	`vc_documento`	TEXT NOT NULL,
+	`vc_denominacion`	TEXT NOT NULL,
+	`vc_nom_comercia`	TEXT,
+	`vc_dir_fiscal`	TEXT,
+	`vc_correo`	TEXT,
+	`vc_logo`	TEXT,
+	`vc_pais`	TEXT,
+	`vc_ubigeo`	TEXT,
+	`vc_tipo_documento`	TEXT,
+	`in_tipo_documento`	INTEGER,
+	`vc_idebiz`	TEXT,
+	`vc_usu_creacion`	TEXT NOT NULL,
+	`vc_usu_modifica`	TEXT NOT NULL,
+	`ts_fec_creacion`	TIMESTAMP NOT NULL,
+	`ts_fec_modifica`	TIMESTAMP NOT NULL,
+	`in_estado`	INTEGER NOT NULL,
+	`ts_fec_sincronizado`	text,
+	`in_estado_sincronizado`	integer,
+	CONSTRAINT `t_entidad_pkey` PRIMARY KEY(`se_ientidad`)
+);
+
+
+CREATE TABLE `fe_offline_fe_query_t_ent_parametros` (
+	`se_identidad`	INTEGER NOT NULL,
+	`in_ientidad`	INTEGER NOT NULL,
+	`in_iparam_ent`	INTEGER NOT NULL,
+	`vc_json`	TEXT,
+	`in_tipo`	INTEGER,
+	`vc_valor`	TEXT,
+	`aux_entero`	INTEGER,
+	`aux_importe`	NUMERIC ( 12 , 2 ),
+	`aux_fecha`	DATE,
+	`aux_caracter`	TEXT,
+	`ts_fec_sincronizado`	text,
+	`in_estado_sincronizado`	integer,
+	CONSTRAINT `t_ent_parametros_pkey` PRIMARY KEY(`se_identidad`)
+);

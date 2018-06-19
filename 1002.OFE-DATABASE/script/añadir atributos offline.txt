@@ -1,0 +1,140 @@
+ALTER TABLE comprobante_t_comprobantepago ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE comprobante_t_comprobantepago ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE comprobante_t_productoxcomprobantepago ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE comprobante_t_productoxcomprobantepago ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_archivo_t_archivo ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_archivo_t_archivo ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_detalle_doc ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_detalle_doc ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_doc_concepto ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_doc_concepto ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_doc_entidad ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_doc_entidad ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_doc_evento ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_doc_evento ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_doc_parametro ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_doc_parametro ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_doc_referenci ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_doc_referenci ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_docmasivo ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_docmasivo ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_comprobante_t_docmasivo_det ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_comprobante_t_docmasivo_det ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_concepto ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_concepto ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_dominio_doc ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_dominio_doc ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_evento ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_evento ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_idioma ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_idioma ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_parametro_doc ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_parametro_doc ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_tipo_afec_igv ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_tipo_afec_igv ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_tipo_calc_isc ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_tipo_calc_isc ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_tipo_ent ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_tipo_ent ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_configuracion_t_tipo_prec_ven ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_configuracion_t_tipo_prec_ven ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_organizacion_t_dominio_ent ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_organizacion_t_dominio_ent ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_organizacion_t_ent_parametro ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_organizacion_t_ent_parametro ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_organizacion_t_entidad ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_organizacion_t_entidad ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_organizacion_t_parametro_ent ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_organizacion_t_parametro_ent ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_organizacion_t_producto ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_organizacion_t_producto ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_organizacion_t_serie ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_organizacion_t_serie ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_comprobante_concepto ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_comprobante_concepto ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_comprobante_evento ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_comprobante_evento ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_comprobantepago ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_comprobantepago ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_concepto ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_concepto ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_doc_parametros ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_doc_parametros ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_doc_referenci ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_doc_referenci ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_docmasivo ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_docmasivo ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_docmasivo_det ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_docmasivo_det ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_ent_parametros ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_ent_parametros ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_entidad ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_entidad ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_est_comprobante ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_est_comprobante ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_idioma ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_idioma ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_parametro_dominio_doc ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_parametro_dominio_doc ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_parametro_dominio_ent ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_parametro_dominio_ent ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_producto ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_producto ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_productoxcomprobantepago ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_productoxcomprobantepago ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_serie ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_serie ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_tipo_afec_igv ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_tipo_afec_igv ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_tipo_calc_isc ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_tipo_calc_isc ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE fe_query_t_tipo_prec_ven ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE fe_query_t_tipo_prec_ven ADD COLUMN in_estado_sincronizado integer;
+
+ALTER TABLE master_t_maestra ADD COLUMN ts_fec_sincronizado text; 
+ALTER TABLE master_t_maestra ADD COLUMN in_estado_sincronizado integer;

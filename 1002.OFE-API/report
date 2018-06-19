@@ -1,0 +1,158 @@
+{
+  "stats": {
+    "suites": 10,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-01-06T18:40:52.081Z",
+    "end": "2018-01-06T18:40:52.397Z",
+    "duration": 316
+  },
+  "tests": [
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar estado de comprobante\", \"backlog\": \"OFE-0501-0504\",  \"AsignarA\": \" renato \"} ",
+      "duration": 50,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio listar estado de comprobante\", \"backlog\": \"OFE-0501-0504\",  \"AsignarA\": \" renato\"} ",
+      "duration": 24,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar series \", \"backlog\": \"OFE-0247-0103\",  \"AsignarA\": \" renato \"} ",
+      "duration": 15,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion  en el servicio listar series\", \"backlog\": \"OFE-0247-0103\",  \"AsignarA\": \" renato\"} ",
+      "duration": 8,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar tipo de comprobante\", \"backlog\": \"OFE-0501-0503\",  \"AsignarA\": \" renato \"} ",
+      "duration": 9,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio listar tipo de comprobante\", \"backlog\": \"OFE-0501-0503\",  \"AsignarA\": \" renato\"} ",
+      "duration": 11,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar tipo de documento\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" renato \"} ",
+      "duration": 5,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio listar tipo de documento\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" renato\"} ",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio busca un usuario\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" jose \"} ",
+      "duration": 95,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio busca un usuario y que este tenga un id\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" jose\"} ",
+      "duration": 88,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar estado de comprobante\", \"backlog\": \"OFE-0501-0504\",  \"AsignarA\": \" renato \"} ",
+      "duration": 50,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio listar estado de comprobante\", \"backlog\": \"OFE-0501-0504\",  \"AsignarA\": \" renato\"} ",
+      "duration": 24,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar series \", \"backlog\": \"OFE-0247-0103\",  \"AsignarA\": \" renato \"} ",
+      "duration": 15,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion  en el servicio listar series\", \"backlog\": \"OFE-0247-0103\",  \"AsignarA\": \" renato\"} ",
+      "duration": 8,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar tipo de comprobante\", \"backlog\": \"OFE-0501-0503\",  \"AsignarA\": \" renato \"} ",
+      "duration": 9,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio listar tipo de comprobante\", \"backlog\": \"OFE-0501-0503\",  \"AsignarA\": \" renato\"} ",
+      "duration": 11,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio listar tipo de documento\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" renato \"} ",
+      "duration": 5,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio listar tipo de documento\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" renato\"} ",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna estado 200 en el servicio busca un usuario\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" jose \"} ",
+      "duration": 95,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "",
+      "fullTitle": "{\"titulo\": \"El servicio retorna informacion en el servicio busca un usuario y que este tenga un id\", \"backlog\": \"OFE-0501-0502\",  \"AsignarA\": \" jose\"} ",
+      "duration": 88,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ]
+}

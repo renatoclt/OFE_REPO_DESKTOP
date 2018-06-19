@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <base href="./">
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>B2MINING</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  <base href="./" id="baseurl">
+  <!-- Bootstrap core CSS     -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <!--  Material Dashboard CSS    -->
+  <link href="./assets/css/material-dashboard.css" rel="stylesheet" />
+  <!--  CSS for Demo Purpose, don't include it in your project     -->
+  <link href="./assets/css/demo.css" rel="stylesheet" />
+  <link href="./assets/css/please-wait.css" rel="stylesheet" />
+
+  <!--     Fonts and icons     -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+
+
+</head>
+
+<body>
+  <script>
+    console.log("process electron");
+    console.log(process);
+
+    window.$ = window.jQuery = require('jquery');
+
+    //const { fork } = require('child_process');
+    //const forked = fork('./child.js');
+    
+    const expressAppUrl = "http://127.0.0.1:3000",
+      spawn = require("child_process").spawn,
+      // For electron-packager change cwd in spawn to app.getAppPath() and
+      // uncomment the app require below
+      //app = require('electron').remote.app,
+      node = spawn(".\\node.exe", ["./1002.OFE-API/bin/www"], {
+        cwd: process.cwd()
+      }),
+      request = require("request"),
+      _ = require("lodash"),
+      key = require("keymaster"),
+      $serverLog = $("#serverLog"),
+      $expressApp = $("#expressApp"),
+      $loading = $("#loading");
+
+    key("f1", () => {
+      if ($serverLog.css("display") === "none") {
+        $serverLog.css("display", "block");
+        $expressApp.addClass("expressAppHide");
+      } else {
+        $expressApp.removeClass("expressAppHide");
+        $serverLog.css("display", "none");
+      }
+    });
+
+    function strip(s) {
+      // regex from: http://stackoverflow.com/a/29497680/170217
+      return s.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '');
+    }
+
+    function redirectOutput(x) {
+      let lineBuffer = "";
+
+      x.on('data', function (data) {
+        lineBuffer += data.toString();
+        let lines = lineBuffer.split("\n");
+
+        _.forEach(lines, (l) => {
+          if (l !== "") {
+            $serverLog.append(strip(l) + "<br/>");
+          }
+        });
+
+        lineBuffer = lines[lines.length - 1];
+      });
+    }
+
+    redirectOutput(node.stdout);
+    redirectOutput(node.stderr);
+
+    
+  </script>
+<script type="text/javascript" src="assets/js/plugins/please-wait.min.js"></script>
+<my-app>
+  <script type="text/javascript">
+    var loadingScreen = pleaseWait({
+      logo: "assets/img/logo-ebiz.svg",
+      backgroundColor: '#EEEEEE',
+      loadingHtml: '<div class="sk-spinner sk-spinner-circle"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div></div>'
+    });
+  </script>
+</my-app>
+
+<script type="text/javascript" src="inline.bundle.js"></script>
+<script type="text/javascript" src="polyfills.bundle.js"></script>
+<script type="text/javascript" src="scripts.bundle.js"></script>
+<script type="text/javascript" src="styles.bundle.js"></script>
+<script type="text/javascript" src="vendor.bundle.js"></script>
+<script type="text/javascript" src="main.bundle.js"></script></body>
+
+
+</html>

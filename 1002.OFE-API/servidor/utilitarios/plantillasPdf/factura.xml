@@ -1,0 +1,212 @@
+<XMLToPDF number-columns="10">
+	<body>
+		<group type="image" row="0" column="0" column-span="2" scale="10">
+			<source>{{logo}}</source>
+		</group>
+		
+		<group type="text" row="0" column="7" column-span="3" 
+			border="15" alignment="1" background-color="#FFFFFF"
+			font-family="Times-Roman" font-color="#000000" font-style="1" font-size="11">
+			<text>{{prefijoRuc}}:{{rucProveedor}}</text>
+			<text>{{tipoComprobante}}</text>
+			<text>{{serie}} - {{correlativo}}</text>
+		</group>
+		
+		<group type="text" row="1" column="0" column-span="6" border="0"  font-family="Times-Roman" font-color="#000000" font-style="1" font-size="10" alignment="0" background-color="#FFFFFF">
+			<text>{{razonSocialProveedor}}</text>
+		</group>
+		
+		<group type="text" row="2" column="0" column-span="6" border="0"  font-family="Times-Roman" font-color="#000000" font-style="0" font-size="8" alignment="0" background-color="#FFFFFF">
+			<text>{{direccionFiscalProveedor}}</text>
+		</group>
+		
+		<group type="table" row="6" column="0" column-span="8" border="0" number-columns="8">
+			<cell column-span="2" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>Fecha de Emisión:</text>
+			</cell>
+			<cell column-span="6" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>{{fechaEmisionString}}</text>
+			</cell>
+			
+			<cell column-span="2" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>Señor(es):</text>
+			</cell>
+			<cell column-span="6" border="0" border-color="#FFFFFF" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#EEEEEE">
+				<text>{{razonSocialComprador}}</text>
+			</cell>
+			
+			<cell column-span="2" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>RUC:</text>
+			</cell>
+			<cell column-span="6" border="0" border-color="#FFFFFF"
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#EEEEEE">
+				<text>{{rucComprador}}</text>
+			</cell>
+			
+			<cell column-span="2" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>Dirección Fiscal:</text>
+			</cell>
+			<cell column-span="6" border="0" border-color="#FFFFFF" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#EEEEEE">
+				<text>{{direccionFiscalComprador}}</text>
+			</cell>
+			
+			<cell column-span="2" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>Tipo de Moneda:</text>
+			</cell>
+			<cell column-span="6" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>{{moneda}}</text>
+			</cell>
+			
+			<cell column-span="2" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>Observación:</text>
+			</cell>
+			<cell column-span="6" border="0" 
+				font-family="Times-Roman" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+				<text>{{observacionComprobante}}</text>
+			</cell>
+		</group>
+		
+		<group type="datatable" row="8" column="0" column-span="10" number-columns="5" data="documentoReferencia" border="15" 
+			font-family="Times-Roman" font-color="#000000" font-style="0" font-size="8" background-color="#EEEEEE" alignment="1"
+			visible_if="{{anticipo}}">
+			<column header="Tipo Documento Relacionado" column-span="2" alignment="0"><text>{{tipoDocumentoDestinoDescripcion}}</text></column>
+			<column header="N° Documento Relacionado" column-span="2" alignment="1"><text>{{serieDocumentoDestino}} - {{correlativoDocumentoDestino}}</text></column>
+			<column header="Monto Anticipo" column-span="1" alignment="2"><text>{{anticipo}}</text></column>
+		</group>
+		
+		<group type="datatable" row="10" column="0" column-span="11" number-columns="11" data="detalleEbiz" border="15" 
+			font-family="Times-Roman" font-color="#000000" font-style="0" font-size="8" alignment="1" background-color="#EEEEEE">
+			<column header="N°" column-span="1" alignment="1"><text>{{posicion}}</text></column>
+			<column header="Código" column-span="1" alignment="1"><text>{{codigoItem}}</text></column>
+			<column header="Descripcion" column-span="1" alignment="0"><text>{{descripcionItem}}</text></column>
+			<column header="Cantidad" column-span="1" alignment="2"><text>{{cantidad}}</text></column>
+			<column header="Unidad Medida" column-span="1" alignment="1"><text>{{unidadMedida}}</text></column>
+			<column header="Precio Unitario" column-span="1" alignment="2"><text>{{precioUnitario}}</text></column>
+			<column header="IGV" column-span="1" alignment="2"><text>{{subtotalIgv}}</text></column>
+			<column header="ISC" column-span="1" alignment="2"><text>{{subtotalIsc}}</text></column>
+			<column header="Descuento" column-span="1" alignment="2"><text>{{descuento}}</text></column>
+			<column header="Valor Venta (Con IGV)" column-span="1" alignment="2"><text>{{precioTotal}}</text></column>
+		</group>
+		
+		<group type="text" row="11" column="0" column-span="10" border="0"  font-family="Courier" font-color="#545454" font-style="0" font-size="11" alignment="2" background-color="#FFFFFF">
+			<text>SON: {{montoComprobante}}</text>
+		</group>
+		
+		<group type="qrcode" row="13" column="0" column-span="5">
+			<text>{{rucProveedor}}|{{idTipoComprobante}}|{{serie}}|{{correlativo}}|{{igv}}|{{montoDescuento}}|{{fechaEmisionString}}|{{idTipoDocumentoComprador}}|{{rucComprador}}</text>
+			<!-- <text font-family="Times-Roman" font-color="#545454" font-style="0" font-size="8">{{mensaje}}</text> -->
+			<text>{{mensaje}}</text>
+		</group>
+		
+		<group type="table" row="13" column="5" column-span="5" border="0" number-columns="5">
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Sub Total:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{subtotal}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Descuentos:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{descuento}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Valor Venta:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{subtotalComprobante}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>ISC:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{isc}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>IGV:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{igv}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Anticipos:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{totalAnticipo}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Otros Tributos:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{otrosTributos}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Otro Cargos:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{totalOtrosCargos}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Valor Venta Op. Gravadas:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{totalOpGravadas}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Valor Venta Op. Exoneradas:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{totalOpExoneradas}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Valor Venta Op. Inafectas:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{totalOpInafectas}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Detracción:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{totalDetraccion}}</text>
+			</cell>
+			
+			<cell column-span="3" border="0" font-family="Times-Roman" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#FFFFFF">
+				<text>Importe Total:</text>
+			</cell>
+			<cell column-span="2" border="0" border-color= "#FFFFFF" font-family="Courier" font-color="#000000" font-style="0" font-size="9" alignment="2" background-color="#EEEEEE">
+				<text>{{montoPagado}}</text>
+			</cell>
+		</group>
+	</body>
+	<footer>
+		<group type="text" row="15" column="7" column-span="2" border="0"  font-family="Times-Roman" font-color="#545454" font-style="0" font-size="8" alignment="2" background-color="#FFFFFF">
+			<text>Generado por:</text>
+		</group>
+		<group type="image" row="15" column="9" column-span="1" scale="12">
+			<source>{{logoEbiz}}</source>
+		</group>
+	</footer>
+</XMLToPDF>
