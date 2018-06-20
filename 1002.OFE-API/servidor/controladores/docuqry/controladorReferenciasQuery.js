@@ -60,7 +60,7 @@ var controladorReferenciasQuery = function (ruta, rutaEsp) {
             hateoasObj_comprobante.paginacion.regxpag = limite;
             hateoasObj_comprobante.paginacion.pagina = pagina;
             hateoasObj_comprobante.busqueda.activo = true;                  /// desde aqui son para las paginas prev, next, last, first
-            hateoasObj_comprobante.busqueda.parametros = {comprobanteID:comprobanteID, felix:'jeje'};        /// parametros de las paginas            
+            hateoasObj_comprobante.busqueda.parametros = {comprobanteID:comprobanteID};        /// parametros de las paginas            
             hateoasObj_comprobante.busqueda.ruta = "/search/comprobanteID";            /// cadena que concatena la ruta basica para las paginas     
             
             var hateoas_link=hateoas.link(hateoasObj_comprobante);

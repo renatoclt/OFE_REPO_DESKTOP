@@ -438,7 +438,7 @@ async function guardarQuery(data){
     comprobante.inVersion = constantes.versionInicial ;
     comprobante.vcNumoc = null ;
     comprobante.vcNumguia = null ;
-    comprobante.vcMontocomprobantepago = NumeroALetras.numeroALetras(data.montoDescuento);
+    comprobante.vcMontocomprobantepago = NumeroALetras.numeroALetras(data.montoPagado);
     comprobante.vcLogo = null ;
     comprobante.vcFirma  = null;
     comprobante.vcPagotipodocumento = null;

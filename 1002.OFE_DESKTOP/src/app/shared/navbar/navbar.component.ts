@@ -120,11 +120,11 @@ export class NavbarComponent implements OnInit {
         if (titlee.charAt(0) === '#') {
             titlee = titlee.slice(2);
         }
-        //console.log('titlee',titlee);
+        // console.log('titlee',titlee);
         //console.log('this.listTitles',this.listTitles);
 
         let selected = this.listTitles.find(a => a.path === titlee);
-        //console.log('selected',selected);
+        // console.log('selected',selected);
 
         if (selected && selected.title) {
             return selected.title;

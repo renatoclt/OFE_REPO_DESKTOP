@@ -140,6 +140,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
                 await this.loginService.guardarTipoCalculoIsc(await this.loginService.obtenerTipoCalculoIsc().toPromise()).toPromise();
                 await this.loginService.guardarConcepto(await this.loginService.obtenerConceptos().toPromise()).toPromise();
                 await this.loginService.guardarEmpresaLocal(this.loginModel.ruc).toPromise();
+                await this.loginService.actualizarFechaDescarga(Number(new Date())).toPromise();
             }
             catch(e){
                 swal({

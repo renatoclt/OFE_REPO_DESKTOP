@@ -96,7 +96,7 @@ Usuario.registrarUsuario =function(usuario){
                     perfil:                 usuario.vc_perfil,
                     fechaCreacion:          new Date().toLocaleString(),
                     fechaModificacion:      null,
-                    estado:                 1,
+                    estado:                 usuario.estado,
                     fechaSincronizado:      null,
                     estadoSincronizado:     0
                 }, {where: {id: usuario.id}});
@@ -121,7 +121,7 @@ Usuario.registrarUsuario =function(usuario){
                     perfil:                 usuario.vc_perfil,
                     fechaCreacion:          new Date().toLocaleString(),
                     fechaModificacion:      null,
-                    estado:                 1,
+                    estado:                 usuario.estado,
                     fechaSincronizado:      null,
                     estadoSincronizado:     0
             });

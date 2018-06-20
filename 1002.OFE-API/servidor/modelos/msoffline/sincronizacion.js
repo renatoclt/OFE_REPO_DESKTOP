@@ -100,7 +100,7 @@ Sincronizacion.sync().then(() => {
   }),
   Sincronizacion.create({
     id: 3,
-    descripcion: 'Retencion' ,
+    descripcion: 'Retención' ,
     idioma: 1,
     usuarioCreacion: constantes.usuarioOffline,
     usuarioModificacion:constantes.usuarioOffline,
@@ -130,7 +130,7 @@ Sincronizacion.sync().then(() => {
   }),
   Sincronizacion.create({
     id: 5,
-    descripcion: 'Parametros' ,
+    descripcion: 'Parámetros' ,
     idioma: 1,
     usuarioCreacion: constantes.usuarioOffline,
     usuarioModificacion:constantes.usuarioOffline,

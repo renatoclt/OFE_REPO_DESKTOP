@@ -9,7 +9,7 @@ cache:
 
 install:
   - ps: Install-Product node 8 x64
-#  - npm i --save electron 
+#  - npm i --save electron
 #  - npm i --save-dev electron-rebuild
 #  - npm install sqlite3 --save
 #  - npm install --global --production windows-build-tools
@@ -37,13 +37,13 @@ build_script:
   - del "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe"
   # - cmd: C:\projects\testelectron\WinSCP.com /command "open sftp://user_lasalle:$3B1z2017$@181.65.130.101/ -hostkey=*" ^ "put ""C:\projects\testelectron\dist\offline Setup 0.8.0.exe"" ""/filessftp/B2M/LASALLE/offline Setup 0.8.0.exe""" ^ "exit"
 
-  
+
 artifacts:
  - path: dist\Sistema*.exe
    name: version
  - path: offlin*.exe
    name: versionlast
-  
+
 deploy:
  - provider: FTP
    protocol: sftp
@@ -69,7 +69,7 @@ for:
      - development
  environment:
    container: febiz
- 
+
 -
  branches:
    only:

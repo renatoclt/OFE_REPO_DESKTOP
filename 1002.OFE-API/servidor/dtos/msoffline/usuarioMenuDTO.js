@@ -44,12 +44,12 @@ UsuarioMenu.mostrar = function MostrarMenu (idUsuario){
                     let padreTem = usuarioMenu.dataValues.MenuOffline.dataValues.MenuPadre.dataValues;
                     let padre = {}
                     padre.front = padreTem.front;
-                   
                     padre.title = padreTem.title; 
                     padre.mini = padreTem.mini;
                     padre.id = padreTem.id;
                     padre.modulos = [];
                     padre.orden = padreTem.orden
+                    padre.icon = constantes.assigment;
                     menuFinal.push(padre);
                 });
                 menuFinal.sort(function (a, b) {
@@ -58,10 +58,9 @@ UsuarioMenu.mostrar = function MostrarMenu (idUsuario){
                 menuFinal = removeDuplicates(menuFinal,'id');
                 menuFinal.forEach( menuPadre => {
                     menu.forEach(menuHijo =>{
-                        
                         if(menuHijo.dataValues.MenuOffline.MenuPadre.dataValues.id == menuPadre.id)
                         {
-                            console.log('ingrese');
+                            console.log(constantes.assigment);
                             let menuHijoTem = {};
                             menuHijoTem.idModulo = menuHijo.dataValues.MenuOffline.idModulo ;
                             menuHijoTem.moduloUri = menuHijo.dataValues.MenuOffline.moduloUri ;

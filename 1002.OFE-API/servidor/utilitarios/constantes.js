@@ -20,6 +20,7 @@ var constantes = {
     catalogoTipoCalcIsc: 'tipo_calc_isc',
     obsEventoGuardarLocal: 'Creación de nuevo comprobante offline',
     fechaSincronizacionInicio: '2018-06-01',
+    assigment: 'assignment',
     paisPeru: 'Perú',
     emisor: 1,
     receptor: 2,

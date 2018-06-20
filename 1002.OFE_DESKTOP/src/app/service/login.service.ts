@@ -9,7 +9,9 @@ import {
     URL_GET_USER,
     URL_OAUTH,
     URL_OAUTH_CLIENT_ID,
-    URL_OAUTH_KILL
+    URL_OAUTH_KILL,
+    REFRESH_GRANT_TYPE,
+    CONTENT_TYPE
 } from '../utils/app.constants'
 import { MENSAJE_ERROR_BAD_CREDENTIALS, MENSAJE_ERROR_GENERICO } from '../utils/messages.constants';
 import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
@@ -105,6 +107,20 @@ export class LoginService {
 
         //TODO HARDCODE
         localStorage.setItem('id_entidad', '1');
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(`${URL_OAUTH}/token`, params, options).map(this.handleData)
+            .catch(this.handleError);
+    }
+
+    public refreshToken(): Observable<any> {
+        let headers = new Headers();
+        headers.set("Authorization", "Basic " + btoa(URL_OAUTH_CLIENT_ID + ":" + OAUTH_CLIENT_SECRET));
+        headers.set("Content-Type", CONTENT_TYPE);
+        headers.set("Ocp-Apim-Subscription-Key", OCP_APIM_SUBSCRIPTION_KEY);
+        let params = new URLSearchParams();
+        params.append("grant_type", REFRESH_GRANT_TYPE);
+        params.append("refresh_token", localStorage.getItem('refresh_token'));
+
         let options = new RequestOptions({ headers: headers });
         return this.http.post(`${URL_OAUTH}/token`, params, options).map(this.handleData)
             .catch(this.handleError);
@@ -527,6 +543,12 @@ export class LoginService {
             listaMaestra.push(this.maestraDTO)
         });
         return this.httpClient.post<DtoMaestra[]>(url, listaMaestra);
+    }
+
+    actualizarFechaDescarga(fecha):Observable<any>{
+        let urlActualizarFecha: string = '/sincronizacion/actualizarFecha';
+        let url = this._servidores.HOSTLOCAL + urlActualizarFecha;
+        return this.httpClient.post<any>(url, {'fecha': fecha});
     }
 
     public guardarParemetroEntidad(): Observable<any>{
