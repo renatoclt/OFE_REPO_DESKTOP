@@ -47,6 +47,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/retención/comprador/formulario/\d*', title: 'Detalle Retención ', icon: 'material-icons' },
 
 
+    { path: '/sincronizacion/sincronizar', title: 'Sincronización ', icon: 'material-icons' },
+    { path: '/sincronizacion/bitacora', title: 'Sincronización Bitácora ', icon: 'material-icons' },
+    
 
     { path: '/conformidadservicio/proveedor/buscar', title: 'Aceptación de Servicio', icon: 'material-icons' },
     { path: '/conformidadservicio/proveedor/formulario/\d*', title: 'Detalle Aceptación de Servicio', icon: 'material-icons' },

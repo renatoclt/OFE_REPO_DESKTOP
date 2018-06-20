@@ -238,7 +238,12 @@ function filtrosDinamicos(
             ticketBaja
 ){
     var whereClause={}
-
+    if (nroSerie!='' && correlativoInicial!=''&&correlativoFinal=='' && tipoComprobanteRegistro!='') {
+        whereClause['vcSerie'] =nroSerie; 
+        whereClause['vcCorrelativo'] = correlativoInicial;
+        whereClause['vcIdregistrotipocomprobante'] =tipoComprobanteRegistro; 
+        return whereClause;
+    }
     if (idEntidadEmisora!='') {
         whereClause['inIdentidademisor'] =idEntidadEmisora; 
     }

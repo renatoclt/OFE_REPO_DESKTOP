@@ -36,6 +36,7 @@ export class SincronizacionComponent implements OnInit {
     @ViewChild('tablaNormal') tabla: DataTableComponent<Sincronizacion>;
 
     public cabecera: string[] = [];
+    public sincronizacion: string = "Sincronización";
     public atributos: string[] = [];
 
     constructor(public router: Router, public sincronizacionService: SincronizacionService, 

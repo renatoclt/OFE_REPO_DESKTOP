@@ -529,6 +529,12 @@ export class LoginService {
         return this.httpClient.post<DtoMaestra[]>(url, listaMaestra);
     }
 
+    actualizarFechaDescarga(fecha):Observable<any>{
+        let urlActualizarFecha: string = '/sincronizacion/actualizarFecha';
+        let url = this._servidores.HOSTLOCAL + urlActualizarFecha;
+        return this.httpClient.post<any>(url, {'fecha': fecha});
+    }
+
     public guardarParemetroEntidad(): Observable<any>{
         this.paremetroEntidadDTO = [{id:'1', descripcion:'Pais'},
                                     {id:'2', descripcion:'Tipos de documentos de identidad'},

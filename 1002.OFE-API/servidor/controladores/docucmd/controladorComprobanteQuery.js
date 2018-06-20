@@ -64,10 +64,15 @@ var controladorComprobanteQuery = function (ruta, rutaEsp) {
                 fechaEmisionAl = req.query.fechaEmisionAl;
             }
             if (!req.query.fechaEmisionDel||!req.query.fechaEmisionAl){
-                const err = new Error('Revisas parametros de Fechas de emision' );
-                console.log(req);
-                err.status = 404;
-                next(err);
+                if(!req.query.nroSerie && !req.query.correlativoInicial){
+                    const err = new Error('Revisas parametros de Fechas de emision' );
+                    console.log(req);
+                    err.status = 404;
+                    next(err);
+                }else{
+                    fechaEmisionDel = dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss");
+                    fechaEmisionAl = dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss");
+                }
             }    
             if (req.query.tipoDocumento && req.query.tipoDocumento!=''){
                 tipoDocumento = req.query.tipoDocumento;
