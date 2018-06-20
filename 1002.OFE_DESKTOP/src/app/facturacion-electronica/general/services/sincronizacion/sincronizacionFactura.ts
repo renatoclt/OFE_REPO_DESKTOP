@@ -31,12 +31,17 @@ export class SincronizacionFacturas {
         return this.loginService.login(localStorage.getItem('username'), localStorage.getItem('passwordActual'));
     }
 
+    refreshToken():Observable<any[]>{ 
+        return this.loginService.refreshToken();
+    }
+
     actualizarToken(response){
         localStorage.setItem('access_token', response.access_token);
         var expireDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
         expireDate.setDate(expireDate.getDate()+1);
         localStorage.setItem('expires', expireDate.getTime().toString());
         localStorage.setItem('expires_in', response.expires_in);
+        localStorage.setItem('refresh_token', response.refresh_token);
     }
 
     obtenerFacturasCreadas():Observable<any[]>{
