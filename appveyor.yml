@@ -31,6 +31,8 @@ build_script:
   - cd ..
   - xcopy /y 1002.OFE_DESKTOP\dist 1002.OFE-PROD\PROD_ANGULAR\dist*
   - xcopy 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html*
+  - dir 1002.OFE-PROD\PROD_ANGULAR\dist
+  - type 1002.OFE-PROD\PROD_ANGULAR\dist\index.html
   - npm run dist
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "offline.exe*"
   - xcopy /f "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\Sistema_de_Facturacion_Electronica_Offline"%APPVEYOR_BUILD_VERSION%".exe*"
@@ -52,14 +54,14 @@ deploy:
    password: $(ftppassword)
    folder: $(APPVEYOR_REPO_BRANCH)
    artifact: version
- - provider: AzureBlob
-   storage_account_name: saoce
-   storage_access_key: $(azureblobkey)
-   container: $(container)
-   folder: offline
-   artifact: versionlast
-   unzip: false
-   set_content_type: false
+# - provider: AzureBlob
+#   storage_account_name: saoce
+#   storage_access_key: $(azureblobkey)
+#   container: $(container)
+#   folder: offline
+#   artifact: versionlast
+#   unzip: false
+#   set_content_type: false
 
 for:
 
