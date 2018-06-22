@@ -64,7 +64,6 @@ deploy:
 #   set_content_type: false
 
 for:
-
 -
  branches:
    only:
