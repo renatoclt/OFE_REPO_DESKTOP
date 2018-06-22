@@ -54,14 +54,14 @@ deploy:
    password: $(ftppassword)
    folder: $(APPVEYOR_REPO_BRANCH)
    artifact: version
-# - provider: AzureBlob
-#   storage_account_name: saoce
-#   storage_access_key: $(azureblobkey)
-#   container: $(container)
-#   folder: offline
-#   artifact: versionlast
-#   unzip: false
-#   set_content_type: false
+ - provider: AzureBlob
+   storage_account_name: saoce
+   storage_access_key: $(azureblobkey)
+   container: $(container)
+   folder: offline
+   artifact: versionlast
+   unzip: false
+   set_content_type: false
 
 for:
 -
