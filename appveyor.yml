@@ -36,15 +36,12 @@ build_script:
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "offline.exe*"
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\Sistema_de_Facturacion_Electronica_Offline"%APPVEYOR_BUILD_VERSION%".exe*"
   - del "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe"
-  # - cmd: C:\projects\testelectron\WinSCP.com /command "open sftp://user_lasalle:$3B1z2017$@181.65.130.101/ -hostkey=*" ^ "put ""C:\projects\testelectron\dist\offline Setup 0.8.0.exe"" ""/filessftp/B2M/LASALLE/offline Setup 0.8.0.exe""" ^ "exit"
-
-build_script:
   - cd "1002.OFE_DESKTOP ADMINISTRADOR"
   - npm run build_dev  
   - cd ..
   - xcopy /y "1002.OFE_DESKTOP ADMINISTRADOR"\dist\* 1002.OFE-PROD\PROD_ANGULAR\dist /s /i
   - xcopy /y /i /R 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html 
-  - xcopy /y /i /R /s  main-administrador.js main.js
+  - xcopy /y /i /R /s main-administrador.js main.js
   - npm install
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "offlineAdministrador.exe*"
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\Sistema_de_Facturacion_Electronica_Offline_Administrador"%APPVEYOR_BUILD_VERSION%".exe*"
