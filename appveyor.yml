@@ -16,7 +16,6 @@ install:
 #  - npm install --global node-gyp
 #  - npm run rebuild
 #  - npm install
-#  - npm install -g webpack
 
 
 
@@ -33,7 +32,7 @@ build_script:
   - xcopy /y /i /R 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html 
   - dir 1002.OFE-PROD\PROD_ANGULAR\dist
   - type 1002.OFE-PROD\PROD_ANGULAR\dist\index.html
-  - npm run dist
+  - npm install
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "offline.exe*"
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\Sistema_de_Facturacion_Electronica_Offline"%APPVEYOR_BUILD_VERSION%".exe*"
   - del "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe"
