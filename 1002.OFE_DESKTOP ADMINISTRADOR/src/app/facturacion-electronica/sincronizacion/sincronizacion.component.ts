@@ -85,8 +85,8 @@ export class SincronizacionComponent implements OnInit {
                 this.obtenerSincronizaciones();
                 break;
             case this.tipos.PARAMETRO_TIPO_CLIENTES:
+                await this.actualizarClientes(item.fechaSincronizacion);
                 this.obtenerSincronizaciones();
-                console.log('Clientes');
                 break;
         }
     }
@@ -589,6 +589,46 @@ export class SincronizacionComponent implements OnInit {
                             confirmButtonClass: "btn btn-error",
                             confirmButtonText: 'CONTINUAR',
                         })
+                        return resolve;
+                    },
+                    reject => {
+                        this.spinner.set(false);
+                        swal({
+                            text: "No esta conectado a internet.",
+                            type: 'error',
+                            buttonsStyling: false,
+                            confirmButtonClass: "btn btn-error",
+                            confirmButtonText: 'CONTINUAR',
+                        });
+                    }
+                )
+            },
+            reject => {
+                this.spinner.set(false);
+                swal({
+                    text: "No esta conectado a internet.",
+                    type: 'error',
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-error",
+                    confirmButtonText: 'CONTINUAR',
+                });
+            }
+        );
+    }
+
+    async actualizarClientes(fecha){
+        this.spinner.set(true);
+        await this.sincronizacionParametros.tokenNuevo().toPromise().then(
+            async resolve =>{
+                this.sincronizacionParametros.actualizarToken(resolve);
+                await this.sincronizacionParametros.refreshToken().toPromise().then(
+                    async resolve =>{
+                        this.sincronizacionParametros.actualizarToken(resolve);
+                        let clientes = await this.sincronizacionParametros.obtenerClientesFecha(fecha).toPromise();
+                        for (let i=0; (i*10)<clientes.page.totalElements; i= i+1){
+                            let organizacionQueries = await this.sincronizacionParametros.obtenerClientesPagina(i, fecha).toPromise();
+                        }
+                        this.spinner.set(false);
                         return resolve;
                     },
                     reject => {

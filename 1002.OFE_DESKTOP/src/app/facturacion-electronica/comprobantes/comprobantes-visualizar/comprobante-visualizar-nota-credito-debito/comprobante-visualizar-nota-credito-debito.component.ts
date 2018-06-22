@@ -236,7 +236,20 @@ export class ComprobanteVisualizarNotaCreditoDebitoComponent implements OnInit, 
     });
   }
 
-  guardarArchivo(archivo: TipoArchivo) {
-    this._archivoService.descargararchivotipo(this.comprobante.value.inIdcomprobantepago, archivo.idArchivo);
+  guardarArchivo(archivo: TipoArchivo, event: Event) {
+    if (event.target['parentElement'].className !== 'disabled') {
+      this._archivoService.descargararchivotipo(this.comprobante.value.inIdcomprobantepago, archivo.idArchivo);
+    }
+  }
+
+  habilitarTipoArchivo(archivo: TipoArchivo) {
+    if (
+      this.comprobante.value &&
+      Number(this.comprobante.value.chEstadocomprobantepago) === this._tiposService.TIPO_ESTADO_PENDIENTE_DE_ENVIO &&
+      archivo.idArchivo !== TIPO_ARCHIVO_PDF.idArchivo
+    ) {
+      return false;
+    }
+    return true;
   }
 }

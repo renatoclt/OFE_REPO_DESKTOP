@@ -599,7 +599,6 @@ export class BoletaComponent implements OnInit, AfterViewInit {
     this.boleta.documentoEntidad[0].idTipoEntidad = this._tipos.TIPO_ENTIDAD_EMISOR;
     this.boleta.documentoEntidad[0].descripcionTipoEntidad = this._tipos.DESCRIPCION_TIPO_ENTIDAD_EMISOR;
     this.boleta.documentoEntidad[0].idEntidad = localStorage.getItem('id_entidad');
-    // this.boleta.documentoEntidad[0].idEntidad = idReceptor;
     this.boleta.documentoEntidad[0].tipoDocumento = '6'; // this._cataloDocumentos.TIPO_DOCUMENTO_IDENTIDAD_RUC;
     this.boleta.documentoEntidad[0].documento = localStorage.getItem('org_ruc');
     this.boleta.documentoEntidad[0].denominacion = localStorage.getItem('org_nombre');
@@ -730,7 +729,6 @@ export class BoletaComponent implements OnInit, AfterViewInit {
               documentoConcepto.descripcionConcepto = concepto.descripcion;
               documentoConcepto.codigoConcepto = concepto.codigo;
               documentoConcepto.importe = (this.boleta.subTotalComprobanteConcepto).toString();
-              // documentoConcepto.importe = (this.boleta.subTotal).toString();
               this.boleta.documentoConcepto.push(documentoConcepto);
               // documentoConceptoOperacionesSubTotalVenta.importe = ;
               break;

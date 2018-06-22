@@ -5,5 +5,6 @@
 export const environment = {
   production: false,
   BASE_URL: 'https://www.ebizlatindata.com/',
-  OCP_APIM_SUBSCRIPTION_KEY:"dc48c92df07e4a029f23c43307355fab"  
+  OCP_APIM_SUBSCRIPTION_KEY:"dc48c92df07e4a029f23c43307355fab"  ,
+  ID_ENTIDAD: '1'
 };

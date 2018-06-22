@@ -24,6 +24,8 @@ export class PercepcionVistaPreviaComponent implements OnInit, OnDestroy {
   public formatoFechaEmision: string;
   public tituloComprobante: string;
   public totalEnPalabras: string;
+  public total: string;
+  public tipoMonedaString: string;
 
   public percepcionAuxiliar: PercepcionCrearAuxiliar;
 
@@ -34,6 +36,7 @@ export class PercepcionVistaPreviaComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private _tiposService: TiposService,
     private _utilsService: UtilsService,
     private _creacionComprobantes: CreacionComprobantes,
     private _percepcionComunService: PercepcionComunService,
@@ -55,17 +58,35 @@ export class PercepcionVistaPreviaComponent implements OnInit, OnDestroy {
 
   cargarPersistencia() {
     this.percepcionAuxiliar = this._percepcionComunService.percepcionAuxiliar.value;
+    switch (this.percepcionAuxiliar.cabecera.tipoMoneda) {
+        case this._tiposService.TIPO_MONEDA_PEN_ISO:  this.tipoMonedaString = this._tiposService.TIPO_MONEDA_PEN_DESCRIPCION;
+            break;
+        case this._tiposService.TIPO_MONEDA_USD_ISO:  this.tipoMonedaString = this._tiposService.TIPO_MONEDA_USD_DESCRIPCION;
+            break;
+        case this._tiposService.TIPO_MONEDA_EUR_ISO:  this.tipoMonedaString = this._tiposService.TIPO_MONEDA_EUR_DESCRIPCION;
+            break;
+    }
     this.formatoFechaEmision = '';
     if (this.percepcionAuxiliar) {
       this.formatoFechaEmision = this._utilsService.convertirFechaAFormato(this.percepcionAuxiliar.cabecera.fechaPago);
       this.totalEnPalabras =
         this._utilsService.convertirMontoEnLetras(
           this.percepcionAuxiliar.cabecera.totalComprobante,
-          this.percepcionAuxiliar.cabecera.tipoMoneda
+          // this.percepcionAuxiliar.cabecera.tipoMoneda
+          this.tipoMonedaString + '.'
         );
+      this.cargarTotal();
     } else {
       this.regresar();
     }
+  }
+
+  cargarTotal() {
+    let totalAux = 0;
+    for (const detalle of this.percepcionAuxiliar.detalle) {
+      totalAux += Number(detalle.importeSolesComprobante);
+    }
+    this.total = totalAux.toFixed(2);
   }
 
   cargarDataTablePersistencia() {
@@ -84,7 +105,7 @@ export class PercepcionVistaPreviaComponent implements OnInit, OnDestroy {
       new ColumnaDataTable('serie', 'serieComprobante'),
       new ColumnaDataTable('numeroCorrelativo', 'correlativoComprobante'),
       new ColumnaDataTable('fechaEmision', 'fechaEmisionComprobante'),
-      new ColumnaDataTable('monedaOrigen', 'monedaComprobante.descripcionLarga'),
+      new ColumnaDataTable('monedaOrigen', 'monedaComprobante.descripcionCorta'),
       new ColumnaDataTable('importeTotal', 'importeTotalComprobante', {'text-align': 'right'}),
       new ColumnaDataTable('importeTotalsoles', 'importeSolesComprobante', {'text-align': 'right'}),
       new ColumnaDataTable('porcentajePercepcion', 'tipoPorcentajePercepcion.descripcion_dominio'),

@@ -39,6 +39,7 @@ export class SincronizacionParametros {
     public queryTipoAfectacionIgv: DtoQueryTipoAfectacionIgv[] = [];
     public queryTipoCalculoIsc: DtoQueryTipoCalcIsc[] = [];
     public conceptos: DtoConcepto[] = [];
+    public urlObtenerClientes: string = '/organizaciones/20502007018/listar';
     constructor(private loginService: LoginService, private servidores: Servidores,private httpClient: HttpClient){
     }
 
@@ -464,5 +465,25 @@ export class SincronizacionParametros {
         let urlActualizarFecha: string = '/sincronizacion/actualizarFecha';
         this.url = this.hostLocal + urlActualizarFecha;
         return this.httpClient.post<any>(this.url, {'fecha': fecha});
+    }
+
+    public obtenerClientesFecha(fecha):Observable<any>{
+        var parts = fecha.split("-");
+        let fechaDe = Number(new Date(new Date(parts[2], parts[1] - 1, parts[0])));
+        let parametrosFinal = new HttpParams().set('page', '0')
+                                            .set('size','10')
+                                            .set('fechaInicial', fechaDe.toString()) 
+        this.url = this.servidores.ORGAQRY + this.urlObtenerClientes;
+        return this.httpClient.get(this.url,{ params: parametrosFinal, headers: this.getCabezera() });
+    }
+    public obtenerClientesPagina(pagina, fecha):Observable<any>{
+        var parts = fecha.split("-");
+        let fechaDe = Number(new Date(new Date(parts[2], parts[1] - 1, parts[0])));
+        let parametrosFinal = new HttpParams().set('page',pagina)
+                                            .set('size','10')
+                                            .set('fechaInicial', fechaDe.toString()) 
+        this.url = this.servidores.ORGAQRY + this.urlObtenerClientes;
+        return this.httpClient.get(this.url,{ params: parametrosFinal, headers: this.getCabezera() });
+
     }
 }

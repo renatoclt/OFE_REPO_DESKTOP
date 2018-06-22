@@ -391,8 +391,6 @@ export class ComprobantesService {
     console.log(parametros);
 
     const urlDefecto = this.servidores.DOCUQRY + this.url_documento_query;
-    //  let urlDefecto = 'http://192.168.70.21:8081/api/fe/ms-documentos-query/v1/documento/query';
-    //  let urlDefecto = 'http://35.225.238.222:8081/api/fe/ms-documentos-query/v1/documento/query';
     return this.buscarDefecto(parametros, urlDefecto);
   }
 

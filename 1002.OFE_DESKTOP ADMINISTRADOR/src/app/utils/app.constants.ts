@@ -30,8 +30,6 @@ export const OAUTH_GRANT_TYPE: string = "password";
 export const REFRESH_GRANT_TYPE: string = "refresh_token"
 export const CONTENT_TYPE: string = "application/x-www-form-urlencoded"
 export const OCP_APIM_SUBSCRIPTION_KEY: string = environment.OCP_APIM_SUBSCRIPTION_KEY;
-export const ID_ENTIDAD: string = environment.ID_ENTIDAD;
-export const ID_ENTIDAD: string = environment.ID_ENTIDAD;
 
 
 
