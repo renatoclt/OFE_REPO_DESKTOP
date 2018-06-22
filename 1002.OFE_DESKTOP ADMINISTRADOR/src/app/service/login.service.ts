@@ -6,6 +6,7 @@ import {
     OAUTH_CLIENT_SECRET,
     OAUTH_GRANT_TYPE,
     OCP_APIM_SUBSCRIPTION_KEY,
+    ID_ENTIDAD,
     URL_GET_USER,
     URL_OAUTH,
     URL_OAUTH_CLIENT_ID,
@@ -106,7 +107,7 @@ export class LoginService {
         params.append("password", password);
 
         //TODO HARDCODE
-        localStorage.setItem('id_entidad', '1');
+        localStorage.setItem('id_entidad', ID_ENTIDAD);
         let options = new RequestOptions({ headers: headers });
         return this.http.post(`${URL_OAUTH}/token`, params, options).map(this.handleData)
             .catch(this.handleError);
