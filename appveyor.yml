@@ -15,13 +15,13 @@ install:
 #  - npm install --global --production windows-build-tools
 #  - npm install --global node-gyp
 #  - npm run rebuild
-   - cd 1002.OFE_DESKTOP 
-   - npm install
-   - npm i html-webpack-plugin --save-dev
-   - cd ../"1002.OFE_DESKTOP ADMINISTRADOR"
-   - npm install
-   - npm i html-webpack-plugin --save-dev
-   - cd ..
+  - cd 1002.OFE_DESKTOP 
+  - npm install
+  - npm i html-webpack-plugin --save-dev
+  - cd ../"1002.OFE_DESKTOP ADMINISTRADOR"
+  - npm install
+  - npm i html-webpack-plugin --save-dev
+  - cd ..
 
 
 
