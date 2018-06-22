@@ -30,7 +30,7 @@ build_script:
   
   - cd ..
   - xcopy /y 1002.OFE_DESKTOP\dist\* 1002.OFE-PROD\PROD_ANGULAR\dist /s /i
-  - xcopy 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html /i /R  
+  - xcopy /y /i /R 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html 
   - dir 1002.OFE-PROD\PROD_ANGULAR\dist
   - type 1002.OFE-PROD\PROD_ANGULAR\dist\index.html
   - npm run dist
