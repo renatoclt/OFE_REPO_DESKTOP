@@ -93,8 +93,10 @@ export class SincronizacionComponent implements OnInit {
     
     public obtenerSincronizaciones() {
         var idioma = Idiomas.IDIOMA_ES.idIdioma;
+        this.spinner.set(true);
         this.sincronizacionService.buscarPorIdioma(idioma).subscribe((data) => {
             this.listSincronizacion = data;
+            this.spinner.set(false);
         });
     }
 
@@ -285,6 +287,7 @@ export class SincronizacionComponent implements OnInit {
                             confirmButtonClass: "btn btn-error",
                             confirmButtonText: 'CONTINUAR',
                         })
+                        this.spinner.set(false);
                         return resolve;
                     },
                     reject => {
@@ -627,6 +630,7 @@ export class SincronizacionComponent implements OnInit {
                         let clientes = await this.sincronizacionParametros.obtenerClientesFecha(fecha).toPromise();
                         for (let i=0; (i*10)<clientes.page.totalElements; i= i+1){
                             let organizacionQueries = await this.sincronizacionParametros.obtenerClientesPagina(i, fecha).toPromise();
+                            await this.sincronizacionParametros.guardarOrganizaciones(organizacionQueries._embedded.organizacionQueries).toPromise();
                         }
                         this.spinner.set(false);
                         return resolve;

@@ -409,6 +409,24 @@ var contoladorSincronizacion =  function (ruta, rutaEsp){
         res.status(200).send('{}');
     });
     
+
+    router.post(ruta.concat('/guardarOrganizaciones'), async function(req, res){
+        req.body.forEach(async element =>{
+            element.direccion = element.direccionFiscal,
+            element.correo = element.correoElectronico,
+            element.logo = null,            
+            element.fechaSincronizado = dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss");
+            element.estadoSincronizado =  constantes.estadoActivo;
+            element.usuarioCreacion = constantes.usuarioOffline;
+            element.usuarioModificacion = constantes.usuarioOffline;
+            element.fechaCreacion = dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss");
+            element.fechaModificacion = dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss");
+            await QueryEntidadOffline.guardar(element);
+            await Entidad.guardar(element);
+            await QueryEntidad.guardar(element);
+        })
+        res.status(200).send(req.body);
+    });
     
 
     router.post(ruta.concat('/entidadEliminar'), async function(req, res){

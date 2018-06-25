@@ -329,6 +329,11 @@ export class SincronizacionParametros {
         return this.httpClient.post<DtoSeries[]>(url, this.serieDTO );
     }
 
+    public guardarOrganizaciones(data): Observable<any>{
+        let url = this.servidores.HOSTLOCAL + '/sincronizacion/guardarOrganizaciones';
+        return this.httpClient.post<any>(url, data );
+    }
+
     public guardarDocumentoAzure(id, idEntidad, tipoComprobante ,logoEbiz, logoEmpresa, plantilla): Observable<any>{
         let url = this.servidores.HOSTLOCAL + '/sincronizacion/documentoAzure';
         const parametros = new HttpParams();
