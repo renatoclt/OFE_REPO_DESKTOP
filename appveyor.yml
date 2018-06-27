@@ -36,20 +36,8 @@ build_script:
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "offline.exe*"
   - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\Sistema_de_Facturacion_Electronica_Offline"%APPVEYOR_BUILD_VERSION%".exe*"
   - del "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe"
-  - cd "1002.OFE_DESKTOP ADMINISTRADOR"
-  - npm run build_dev  
-  - cd ..
-  - xcopy /y "1002.OFE_DESKTOP ADMINISTRADOR"\dist\* 1002.OFE-PROD\PROD_ANGULAR\dist /s /i
-  - xcopy /y /i /R 1002.OFE-PROD\PROD_ANGULAR\index.html 1002.OFE-PROD\PROD_ANGULAR\dist\index.html 
-  - xcopy /y /i /R main-administrador.js main.js
-  - npm install
-  - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "offlineAdministrador.exe*"
-  - xcopy /y "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe" "dist\Sistema_de_Facturacion_Electronica_Offline_Administrador"%APPVEYOR_BUILD_VERSION%".exe*"
-  - del "dist\Sistema_de_Facturacion_Electronica_Offline Setup 20.6.1.exe"
 
 artifacts:
- - path: dist\Sistema*.exe
-   name: version
  - path: offlin*.exe
    name: versionlast
 
@@ -60,15 +48,8 @@ deploy:
    username: $(ftpusername)
    password: $(ftppassword)
    folder: $(APPVEYOR_REPO_BRANCH)
-   artifact: version
- - provider: AzureBlob
-   storage_account_name: saoce
-   storage_access_key: $(azureblobkey)
-   container: $(container)
-   folder: offline
    artifact: versionlast
-   unzip: false
-   set_content_type: false
+
 
 for:
 -
