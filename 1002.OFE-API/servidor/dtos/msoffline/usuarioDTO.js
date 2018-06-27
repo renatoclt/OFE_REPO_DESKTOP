@@ -13,8 +13,9 @@ Usuario.eliminar = function eliminarIdioma(){
 
 
 
-Usuario.buscarUsuarioNombre = function (nombre) {
-    if (nombre == null){
+Usuario.buscarUsuarioNombre = function buscarUsuarioNombre(nombre) {
+    console.log(nombre);
+    if (nombre == null | nombre == undefined){
         nombre='PLASALLE';
     }
     var promise = new Promise(function (resolve, reject) {

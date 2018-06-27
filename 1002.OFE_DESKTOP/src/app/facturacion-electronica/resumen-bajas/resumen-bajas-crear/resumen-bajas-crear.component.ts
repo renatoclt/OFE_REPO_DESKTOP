@@ -211,7 +211,7 @@ export class ResumenBajasCrearComponent implements OnInit {
           Validators.required
         ])
     }, Validators.compose([
-      ValidadorPersonalizado.fechaDeberiaSerMenor('fechaemisioninicio', 'fechaemisionfin', 'errorFecha'),
+      ValidadorPersonalizado.fechaDeberiaSerMenor('fechaemisioninicio', 'fechaemisionfin', 'errorFechaEmision'),
       ValidadorPersonalizado.validarCorrelativos('cmbserie', 'correlativoinicio', 'correlativofinal')
     ]));
   }

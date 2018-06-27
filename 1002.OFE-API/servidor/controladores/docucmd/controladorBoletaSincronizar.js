@@ -499,8 +499,8 @@ async function guardarQuery(data){
 }
 
 async function buscarUsuario(nombre){
-    usuario = await usuario.buscarUsuarioNombre(nombre);
-    return usuario;
+    let nombreUsuario = await usuario.buscarUsuarioNombre(nombre);
+    return nombreUsuario;
 }
 
 async function guardarProductoXComprobantePago(id , data){    

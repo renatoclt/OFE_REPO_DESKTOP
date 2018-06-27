@@ -42,6 +42,8 @@ var contoladorComprobante =  function (ruta, rutaEsp){
      */
     router.post(ruta.concat('/guardarRetencion'), async function(req, res){
         data = req.body;
+        console.log(req.body);
+        console.log('*************************');
         data.id = uuid();
         try{
             data.fechaEmision = dateFormat(data.fechaEmision, "yyyy-mm-dd HH:MM:ss");
@@ -65,6 +67,7 @@ var contoladorComprobante =  function (ruta, rutaEsp){
             data.importeReferencial =  data.totalComprobante;
             data.subtotalComprobante = 0;
             data.montoComprobante = NumeroALetras.numeroALetras(data.montoDescuento);
+            console.log('/*/*/*/*/*/');
             data.idindicadorImpuesto = 0;
             data.impuestoGvr = 0;
             data.generado = 0;
@@ -74,6 +77,8 @@ var contoladorComprobante =  function (ruta, rutaEsp){
             data.fechaSincronizado = dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss.l");
             data.vcSerie = data.numeroComprobante;          
             let idEntidad = 0; 
+            
+
             Array.from(data.documentoEntidad).forEach(function (element) {
                 if (element.idTipoEntidad == 1){
                     idEntidad = element.idEntidad ;
@@ -189,9 +194,9 @@ async function buscarCorrelativo(tipoComprobante, serie, tipoSerie , entidad){
     return zfill(correlativo,8);
 }
 
-async function buscarUsuario(nombre){
-    usuario = await usuario.buscarUsuarioNombre(nombre);
-    return usuario;
+async function buscarUsuario(nombre){    
+    let nombreUsuario = await usuario.buscarUsuarioNombre(nombre);
+    return nombreUsuario;
 }
 
 async function guardarQuery(data){

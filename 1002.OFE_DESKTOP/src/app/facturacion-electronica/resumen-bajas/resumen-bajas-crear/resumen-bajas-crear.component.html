@@ -71,12 +71,18 @@
                 <div class="form-group label-floating">
                   <label class="control-label">Fecha de Emisión Del <span class="star">*</span></label>
                   <input id="fechaemisioninicio" formControlName="fechaemisioninicio" type="text" class="form-control"  name="fechaemisiondel" datepicker />
-                  <span
-                    *ngIf="!productFormGroup.get('fechaemisioninicio').valid && productFormGroup.get('fechaemisioninicio').touched">
-                              <span *ngIf="productFormGroup.controls['fechaemisioninicio'].hasError('required')"
-                                    class="text-danger">{{'campoRequerido' | translate}}</span>
-                </span>
                 </div>
+                <span class="text-danger"
+                     *ngIf="!productFormGroup.get('fechaemisioninicio').valid && productFormGroup.get('fechaemisioninicio').touched">
+                     {{'campoRequerido' | translate}}
+               </span>
+               <span *ngIf="productFormGroup.controls['fechaemisioninicio'].hasError('required')"
+                     class="text-danger">{{'campoRequerido' | translate}}
+               </span>
+               <span class="text-danger"
+                     *ngIf="productFormGroup.errors && productFormGroup.errors.errorFechaEmision">
+                 {{productFormGroup.errors.errorFechaEmision | translate}}
+               </span>
               </div>
               <div class="col-sm-3">
                 <div class="form-group label-floating">
