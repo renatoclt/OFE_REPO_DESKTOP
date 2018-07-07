@@ -59,7 +59,7 @@ export class EmisionPercepcionRetencionComponent implements OnInit {
           if (data) {
             const winparams = 'dependent = yes, locationbar = no, menubar = yes, resizable, screenX = 50,' +
               ' screenY = 50, width = 800, height = 800';
-            const htmlPop = '<embed width=100% height=100% type="application/pdf" src="data:application/pdf;base64,' + data + '"> </embed>';
+            const htmlPop = '<p>eureka</p><embed width=100% height=100% type="application/pdf" src="data:application/pdf;base64,' + data + '"> </embed>';
             const printWindow = window.open('', 'PDF', winparams);
             printWindow.document.write(htmlPop);
           }
